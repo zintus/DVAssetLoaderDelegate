@@ -30,7 +30,7 @@ static NSTimeInterval const kDefaultLoadingTimeout = 15;
 
 #pragma mark - Public
 
-- (instancetype)initWithURL:(NSURL *)url {
+- (instancetype)initWithURL:(NSURL *)url queue:(NSOperationQueue *)queue {
     NSParameterAssert([url.scheme.lowercaseString hasPrefix:@"http"]);
 
     if (self = [super init]) {
@@ -43,7 +43,7 @@ static NSTimeInterval const kDefaultLoadingTimeout = 15;
         _networkTimeout = kDefaultLoadingTimeout;
         _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                                                  delegate:self
-                                            delegateQueue:[NSOperationQueue mainQueue]];
+                                            delegateQueue:queue];
     }
 
     return self;

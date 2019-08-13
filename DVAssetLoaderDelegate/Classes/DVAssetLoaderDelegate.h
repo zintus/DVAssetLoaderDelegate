@@ -11,9 +11,9 @@
 @interface DVAssetLoaderDelegate : NSObject <AVAssetResourceLoaderDelegate>
 
 + (NSString *)scheme;
-- (instancetype)initWithURL:(NSURL *)url NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithURL:(NSURL *)url queue:(NSOperationQueue *)queue NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
-+ (instancetype) new NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
 
 @property (nonatomic, weak) NSObject<DVAssetLoaderDelegatesDelegate> *delegate;
 @property (nonatomic) NSURLSession *session;

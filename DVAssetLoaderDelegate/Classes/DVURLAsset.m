@@ -34,7 +34,7 @@ static NSTimeInterval const kDefaultLoadingTimeout = 15;
     components.scheme = [DVAssetLoaderDelegate scheme];
     
     if (self = [super initWithURL:[components URL] options:options]) {
-        DVAssetLoaderDelegate *resourceLoaderDelegate = [[DVAssetLoaderDelegate alloc] initWithURL:URL];
+        DVAssetLoaderDelegate *resourceLoaderDelegate = [[DVAssetLoaderDelegate alloc] initWithURL:URL queue:[NSOperationQueue mainQueue] ];
         resourceLoaderDelegate.networkTimeout = networkTimeout;
         [self.resourceLoader setDelegate:resourceLoaderDelegate queue:dispatch_get_main_queue()];
     }
